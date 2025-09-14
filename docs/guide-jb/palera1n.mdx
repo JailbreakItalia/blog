@@ -1,0 +1,103 @@
+---
+title: palera1n
+description: Guida per l'installazione di palera1n
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+palera1n è un jailbreak compatibile con device con A11 o precedenti.
+
+Su dispositivi con A11, **devi disattivare il codice di sblocco** e non potrai utilizzare nessuna funzionalità SEP (FaceID/TouchID, codice di sblocco, Apple Pay...) finché non torni nello stato non jailbroken.
+
+Inoltre, se il tuo device A11 è su iOS 16+ e hai impostato un codice di sblocco in passato, dovraii formattarlo prima di procedere.
+
+:::warning
+Se stai usando una vecchia versione di palera1n tethered, dovrai rimuovere palera1n prima di continuare
+:::
+
+:::warning
+Se sei su Windows, segui la guida per [palen1x](palen1x.mdx)
+:::
+
+## Installare il jailbreak
+
+Seleziona il tuo sistema operativo:
+
+<Tabs>
+  <TabItem value="macOS" label="macOS" default>
+    ### Installare palera1n
+
+    1. Apri il terminale
+    2. Esegui `sudo /bin/sh -c "$(curl -fsSL https://static.palera.in/scripts/install.sh)"`
+
+    ### Eseguire palera1n
+
+    :::warning
+    Usa un cavo USB-A e **non** un cavo USB-C
+    :::
+    
+    :::tip
+    Se stai usando un Mac con Apple Silicon, dovrai scollegare e ricollegare il cavo dopo che appare `Checkmate!` nei log
+    :::
+
+    1. Esegui `palera1n -l` col device collegato
+    2. Premi, `Enter` e segui le istruzioni a schermo per entrare in DFU mode
+
+    :::info
+    Alcuni device potrebbero bloccarsi in pongoOS.
+    Per risolvere:
+    * Premi `ctrl` + `C`
+    * Riesegui il comando `palera1n -l`
+    :::
+  </TabItem>
+  <TabItem value="linux" label="Linux">
+    :::danger
+    Non usare nessun tipo di VM o WSL, **non funzioneranno**
+    :::
+
+    :::warning
+    Le distro basate su Ubuntu sono solite avere problemi con palera1n. Se puoi, usa un'altra distro o segui la guida per [palen1x](palen1x.mdx).
+
+    Se stai usando un PC con CPU AMD, potresti incontrare problemi.
+    :::
+
+    ### Installare palera1n
+
+    :::warning
+    Usa un cavo USB-A e non un cavo USB-C
+    :::
+
+    1. Apri il terminale
+    2. Esegui `sudo systemctl stop usbmuxd`
+    3. Esegui `sudo usbmuxd -f -p`
+    4. Apri un'altra finestra del terminale
+    5. Esegui `sudo /bin/sh -c "$(curl -fsSL https://static.palera.in/scripts/install.sh)"`
+
+    ### Eseguire palera1n
+
+    1. Esegui `palera1n -l` col device collegato
+    2. Premi, `Enter` e segui le istruzioni a schermo per entrare in DFU mode
+
+    :::info
+    Alcuni device potrebbero bloccarsi in pongoOS.
+    Per risolvere:
+    * Premi `ctrl` + `C`
+    * Riesegui il comando `palera1n -l`
+    :::
+
+  </TabItem>
+</Tabs>
+
+---
+
+Quando il device si avvia, apri l'app palera1n loader e tocca Sileo. Ti chiederà poi di inserire un passcode e Sileo sarà visibile nella schermata home.
+
+:::info
+Per rieseguire il JB, dovrai rifare questi step
+:::
+
+---
+:::info
+Guida di [JailbreakItalia](https://t.me/JailbreakItalia) ![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/15px-Telegram_logo.svg.png)
+:::

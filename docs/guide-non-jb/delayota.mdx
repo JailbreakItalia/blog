@@ -1,0 +1,52 @@
+---
+title: Metodo DelayOTA
+description: Guida per l'aggiornamento tramite DelayOTA
+---
+
+:::warning
+Esegui un backup **prima** di seguire questa guida per poter togliere la modalità supervisione!
+:::
+
+I dispositivi iOS/iPadOS normalmente possono solo essere aggiornati a versioni "firmate", quindi solo quelle più recenti.
+Fortunatamente, si possono utilizzare "profili" alternativi per ritardare un aggiornamento software. Questi profili sono utilizzati soprattutto da aziende che hanno bisogno di più tempo per aggiornare i device, ma possono essere utilizzati da tutti.
+
+In ogni caso c'è un limite di tempo, si può aggiornare solo a determinate versioni entro un limite di tempo (differente per ogni versione). La tabella delle scadenze è visibile [qua](https://dhinakg.github.io/delayed-otas.html)
+
+## Installare Nugget
+
+Per poter aggiornare a una versione non firmata è necessario mettere il proprio dispositivo in modalità "Supervisione", ciò è possibile tramite Nugget.
+Occorre installare la versione Windows/MacOS/Linux di [Nugget](https://github.com/leminlimez/Nugget/releases/latest), unzippare il file scaricato e aprire l'eseguibile.
+Su Windows sarà necessario installare [iTunes](https://www.apple.com/itunes/download/win64) o [Dispositivi Apple](https://apps.microsoft.com/detail/9np83lwlpz9k).
+
+## Supervisionare il dispositivo
+
+:::warning
+Esegui un backup **prima** di seguire questa guida per poter togliere la modalità supervisione!
+:::
+
+1. Collegare il device al computer
+2. Aprire Nugget e andare nel menu `Settings`
+3. Abilitare `Enable Supervision` assicurandosi che `Skip Setup` sia abilitato
+4. Andare nel menu `Apply` e cliccare `Apply Changes`
+
+Una volta riavviato il dispositivo, dovrebbe essere visibile un annuncio nelle impostazioni (in alto) che indica che il dispositivo è supervisionato. Se non lo vedi, ripeti i passaggi precedenti.
+
+## Aggiornare iOS/iPadOS
+
+1. Apri [questa pagina](https://dhinakg.github.io/delayed-otas.html) sul tuo dispositivo
+2. Installa il profilo relativo alla versione a cui vuoi aggiornare
+3. Collega il dispositivo al Wi-Fi e mettilo in carica
+4. Vai in `Impostazioni` > `Generali` > `Aggiornamento Software`
+5. Assicurati che la versione mostrata sia quella desiderata
+6. Scarica e installa l'aggiornamento
+7. Una volta aggiornato, rimuovi il profilo dell'aggiornamento dalle impostazioni
+
+## Rimuovere la supervisione
+
+Se vuoi rimuovere lo stato di supervisione, dovrai formattare il dispositivo e ripristinare un backup fatto **PRIMA** di essere supervisionato.
+Basta andare in `Impostazioni` > `Generali` > `Inizializza contenuto e impostazioni`
+
+---
+:::info
+Guida di [JailbreakItalia](https://t.me/JailbreakItalia) ![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/15px-Telegram_logo.svg.png)
+:::

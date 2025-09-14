@@ -1,0 +1,63 @@
+---
+title: TrollInstallerX
+description: Guida per l'installazione di TrollStore tramite TrollInstallerX
+---
+
+<div align="center">
+    <img src="https://raw.githubusercontent.com/alfiecg24/TrollInstallerX/main/Resources/Icon.png" width="125" height="125" />
+</div>
+
+## Cos'è?
+
+TrollInstallerX (TIX) è un installer universale di TrollStore. Nasce per essere estremamente affidabile e facile da utilizzare. È anche molto veloce, è infatti in grado di installare TrollStore e/o il suo persistence helper in qualche secondo.
+TrollInstallerX supporta tutti i device da iOS 14.0 a 16.6.1, sia arm64 che arm64e. Utilizza uno dei due metodi di installazione di TrollStore, a seconda del dispositivo utilizzato.
+
+I metodi sono:
+* Installazione diretta: utilizzando l'exploit kernel kfd e il dmaFail PPL bypass su dispositivi arm64e con iOS 15.2+, TIX installa sia TS che il persistence helper direttamente nel device senza bisogno di passaggi extra.
+    * Supporta iOS 14.0 - 16.6.1 (arm64) e iOS 14.0 - 16.5.1 (arm64e)
+        * Nota: i device con A15, A16 e M2 su iOS 16.5.1 non supportano questo metodo
+        * Nota: i device con A8 supportano questo metodo solo su iOS 14.0 - 15.1 per ora
+* Installazione indiretta: Utilizzando l'exploit kernel kdf, TIX rimpiazza un'applicazione di sistema a tua scelta con il persistence helper di TrollStore. Questo metodo esiste solo a causa della mancanza di un PPL bypass su dispositivi con iOS 16.6+, e anche perché il dmaFail non funziona su A15, A16 e M2 su iOS 16.5.1
+    * Supporta iOS 16.5.1 - 16.6.1 (arm64e)
+        * Nota: Questo metodo è l'unico che supporta A15, A16 e M2 su iOS 16.5.1
+
+Entrambi i metodi permettono di installare un persistence helper in un'app di sistema disinstallabile. Così è come funziona il CoreTrust bug - in alcune circostanze, TrollStore e altre app installate smetteranno di funzionare perché vengono resettate a User registration anziché System. Non potrai riaprire queste app finché non utilizzerai il persistence helper per resettarle a System registration.
+
+## Utilizzo
+
+TrollInstallerX è estremamente semplice da utilizzare. Per installarlo senza PC, vai su [jailbreaks.app](https://jailbreaks.app) (la firma potrebbe essere revocata).
+Altrimenti, scarica il ```.ipa``` dalle [Releases](https://github.com/alfiecg24/TrollInstallerX/releases) e installalo col metodo che preferisci (digita ```!altstore``` o ```!sideloadly``` sul [gruppo](https://t.me/JailbreakItalia)). Una volta installata, apri l'app e clicca il bottone ```Install```. Ora TrollStore e/o il persistence helper saranno installati sul dispositivo.
+TrollInstallerX sceglierà automaticamente l'exploit migliore per il tuo device. C'è però la possibilità che si sbagli e potrai quindi scegliere un exploit specifico. Per farlo, vai nelle impostazioni e scegli l'exploit adatto al tuo dispositivo.
+
+**Nota**: iOS 16.2 - 16.6.1 e iOS 15.7.2 - 15.8.2 richiedono una connessione ad internet per scaricare dipendenze necessarie al corretto funzionamento.
+
+## FAQ
+
+#### Sono bloccato a "Exploiting kernel"
+
+Problema comune. Riavvia il device e riprova.
+
+#### Non riesco ad aprire/vedere TrollStore dopo che l'installazione è andata a buon fine
+
+Durante l'installazione hai installato anche il persistence helper. Aprilo e premi ```refresh app registration``` per risolvere il problema.
+
+#### Perché l'app che ho selezionato come persistence helper non è diventata il persistence helper?
+
+Se l'app non è cambiata, probabilmente hai già un persistence helper installato. Apri TrollStore e vai nelle impostazioni per vedere quale app è settata per essere il persistence helper.
+
+#### Perché mi restituisce un errore dicendo di non essere in grado di eseguire il **patchfind**?
+
+Ci sono due possibili cause:
+* Non sei su una versione supportata dal MacDirtyCow e non sei connesso ad interet
+* Stai usando un iPhone 14 Giallo o un iPhone 14 Plus Giallo su iOS 16.3 (20D50), in questo caso installa`TrollInstallerX-20D50.ipa` da [qua](https://github.com/alfiecg24/TrollInstallerX/releases/latest)
+
+Inoltre, se esiste un file al percorso ```/TrollInstallerX.app/kernelcache```, TSX userà quel file anziché scaricarlo da internet.
+
+#### Perché TrollInstallerX dice "failed to install persistence helper" utilizzando il metodo indiretto?
+
+Il metodo indiretto non è perfetto, e qualche volta fallisce. Se succede, riavvia e riprova. Se questo problema si ripete prova ad utilizzare un'altra app.
+
+---
+:::info
+Guida di [JailbreakItalia](https://t.me/JailbreakItalia) ![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/15px-Telegram_logo.svg.png)
+:::

@@ -1,0 +1,102 @@
+---
+title: TrollRestore
+description: Guida per l'installazione di TrollStore tramite TrollRestore
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Requisiti
+
+* Un dispositivo con iOS/iPadOS da 15.2 a 16.6.1, 16.7RC (20H18) o 17.0
+* L'ultima versione di [python3](https://www.python.org/downloads)
+* L'ultima versione di [iTunes](https://www.apple.com/itunes/download/win64) se sei su Windows
+* L'ultima versione di [TrollRestore](https://github.com/JJTech0130/TrollRestore/releases) per il tuo PC
+    * Per Windows, sarà `TrollRestore.exe`
+    * Per Mac con Apple Silicon, `TrollRestore_macOS_arm64.zip`
+    * Per Mac Intel, `TrollRestore_macOS_amd64.zip`
+    * Per Linux, `TrollRestore_Linux.zip`
+
+:::info
+Prima di continuare, se stai usando macOS o Linux, estrai il contenuto del file `.zip`
+:::
+
+:::warning
+Questo metodo richiede di ripristinare da un backup modificato, dovrai quindi disattivare Trova il mio iPhone prima di continuare.
+
+Dopo aver completato l'installazione, potrai riattivarlo.
+:::
+
+## Eseguire TrollRestore
+
+Segui gli step per il tuo PC
+
+<Tabs>
+  <TabItem value="macOS-Windows" label="macOS/Windows" default>
+  :::warning
+La build di TrollRestore per Mac Intel non è verificata, il che significa che dovrai cliccarla due volte mentre premi il tasto Control, oppure dovrai provare ad aprirla normalmente e poi andare su `Impostazioni di sistema` -> `Privacy e Sicurezza` e scorrere fino a trovare `Apri comunque`.
+
+In alternativa puoi seguire la guida nel tab `Linux`, dato che gli step funzionano per tutte le piattaforme (ma sono più lunghi).
+:::
+
+#### Iniettare TrollStore Helper
+
+1. Collega il tuo device al PC
+    * Assicurati che il PC abbia l'accesso a visualizzare i file del device
+2. Apri Finder (su macOS) o Explorer (su Windows)
+3. Vai alla cartella in cui hai scaricato TrollRestore
+4. Esegui `TrollRestore`
+5. A un certo punto ti verrà richiesto di scrivere il nome di un'app di sistema da sovrascrivere. Inseriscila e continua.
+    * Noi consigliamo di sovrascrivere l'inutile app "Suggerimenti". Dovrai quindi scrivere `Tips`
+  </TabItem>
+  <TabItem value="linux" label="Linux">
+  :::info
+Puoi seguire la sezione Linux anche con un PC Windows o macOS (fallo solo se hai problemi con il metodo precedente) modificando i nomi dei percorsi ad-hoc.
+:::
+
+#### Installare le dipendenze
+
+1. Apri il terminale
+2. Vai alla cartella in cui hai estratto TrollRestore_Linux
+    * Probabilmente sarà `cd ~/Downloads/TrollRestore_Linux`
+3. Esegui `pip3 install -r requirements.txt` e segui le istruzioni a schermo
+
+Le dipendenze dovrebbero essere installate.
+
+#### Iniettare TrollStore Helper
+
+1. Collega il tuo device al PC
+    * Assicurati che il PC abbia l'accesso a visualizzare i file del device
+2. Nella stessa finestra del terminale di prima, esegui `python3 trollstore.py`
+3. A un certo punto ti verrà richiesto di scrivere il nome di un'app di sistema da sovrascrivere. Inseriscilo e continua.
+    * Noi consigliamo di sovrascrivere l'inutile app "Suggerimenti". Dovrai quindi scrivere `Tips`
+
+  </TabItem>
+</Tabs>
+
+---
+
+:::info
+Finché il device non si riavvia, non ci sarà nessun indicazione sul device che qualcosa stia venendo fatto. Sii paziente
+:::
+
+TrollStore Helper dovrebbe ora essere ripristinato nel tuo device, che si riavvierà quando il processo sarà concluso.
+
+## Installare TrollStore
+
+1. Sblocca il tuo device
+2. Apri l'app che hai scelto (probabilmente l'app Suggerimenti)
+3. Tocca `Install TrollStore`
+
+Il tuo dispositivo dovrebbe eseguire un respring e TrollStore dovrebbe essere ora installato
+
+## Installare il Persistence Helper
+
+1. Apri l'app di TrollStore dalla home
+2. Premi `Settings`, poi `Install persistence helper`
+3. Seleziona `Tips` dalla lista
+
+---
+:::info
+Guida di [JailbreakItalia](https://t.me/JailbreakItalia) ![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/15px-Telegram_logo.svg.png)
+:::
