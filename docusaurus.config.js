@@ -52,6 +52,7 @@ const config = {
         theme: {
           customCss: './src/css/custom.css',
         },
+        blog: false,
       }),
     ],
   ],
@@ -76,11 +77,11 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'JB Italia',
-        /*logo: {
+        title: ' Italia',
+        logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
-        },*/
+        },
         items: [
           {
             type: 'docSidebar',
