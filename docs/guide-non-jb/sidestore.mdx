@@ -4,9 +4,9 @@ description: Guida per l'installazione di SideStore
 sidebar_position: 2
 ---
 
-## Cos'è Sidestore
+## Cos'è SideStore
 
-Sidestore è un'app per iOS/iPadOS che permette di eseguire il sideload e il refresh (esclusivamente sotto rete Wi-Fi) delle app con il proprio Apple ID, esattamente come AltStore ma senza la necessità di un PC (se non per la configurazione iniziale).
+SideStore è un'app per iOS/iPadOS che permette di eseguire il sideload e il refresh (esclusivamente sotto rete Wi-Fi) delle app con il proprio Apple ID, esattamente come AltStore ma senza la necessità di un PC (se non per la configurazione iniziale).
 
 ## Requisiti
 
@@ -15,13 +15,13 @@ Sidestore è un'app per iOS/iPadOS che permette di eseguire il sideload e il ref
 3. Un Apple ID
 4. Un dispositivo con iOS/iPadOS 14 o superiore
 
-## Installare Sidestore
+## Installare SideStore
 
 1. Scarica AltServer sul tuo PC [Windows](https://cdn.altstore.io/file/altstore/altinstaller.zip) o [Mac](https://cdn.altstore.io/file/altstore/altserver.zip), senza installare AltStore sull'iPhone/iPad
     * Per i PC Windows sarà necessario installare [iTunes](https://www.apple.com/itunes/download/win64/) e [iCloud](https://updates.cdn-apple.com/2020/windows/001-39935-20200911-1A70AA56-F448-11EA-8CC0-99D41950005E/iCloudSetup.exe) 
-2. Scarica [Sidestore.ipa](https://github.com/sidestore/sidestore/releases/latest/download/sidestore.ipa)
+2. Scarica [SideStore.ipa](https://github.com/SideStore/SideStore/releases/latest/download/SideStore.ipa)
 3. Apri AltServer e, tenendo premuto `shift` su Windows o `options` su Mac, clicca sull'icona di AltServer nella barra delle applicazioni
-4. Seleziona `Sideload .ipa` e scegli il file `Sidestore.ipa` scaricato al punto 2, poi segui le istruzioni a schermo
+4. Seleziona `Sideload .ipa` e scegli il file `SideStore.ipa` scaricato al punto 2, poi segui le istruzioni a schermo
 
 ## Generare il Pairing File
 
@@ -36,8 +36,8 @@ D'ora in poi non sarà più necessario il PC Windows/Mac.
 1. Sull'iPhone/iPad, scarica [StosVPN](https://apps.apple.com/app/stosvpn/id6744003051) dall'AppStore
 4. Segui i passaggi, ti verrà chiesto di installare un profilo VPN (sarà necessario attivarla solo per l'installazione o il refresh delle app).
 5. Attiva la VPN
-1. Apri Sidestore (con la VPN attiva)
-2. Vai nelle impostazioni e fai il login con il tuo ID Apple (deve essere lo stesso con cui hai sideloadato Sidestore)
+1. Apri SideStore (con la VPN attiva)
+2. Vai nelle impostazioni e fai il login con il tuo ID Apple (deve essere lo stesso con cui hai sideloadato SideStore)
     * Se dà errore, scorri in basso nelle impostazioni fino ad `Anisette Servers`, cliccalo e premi `Refresh Servers`. Poi fai di nuovo il login
 3. Vai nel tab `Apps` e premi su `Refresh All`, è MOLTO importante per evitare bug
 
@@ -51,6 +51,10 @@ A questo punto potrai eseguire il sideload delle applicazioni senza la necessit�
 4. Installa il profilo e vedrai l'app comparire nella home 
 
 ## Abilitare Modalità JIT
+
+:::warning
+Per ora la JIT è rotta su iOS 26, verrà rilasciato un fix dopo l'uscita di iPhone 17
+:::
 
 1. Installa [StikDebug](https://apps.apple.com/app/stikdebug/id6744045754) dall'App Store
 2. Apri l'app e importa il pairing file (lo trovi in `Il mio iPhone/iPad` -> `SideStore` -> `ALTPairingFile.mobiledevicepairing`)

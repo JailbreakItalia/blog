@@ -61,7 +61,6 @@ const config = {
     [
       'docusaurus-lunr-search', 
       {
-        // Chinese isn't supported yet
         languages: ['it'],
         // Keep max results to 10
         maxHits: 10,
