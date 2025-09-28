@@ -44,7 +44,12 @@ Se sei preoccupato della tua privacy, utilizza i profili WSF anziché quelli mad
 
 Il profilo WSF redireziona i server Apple a localhost (te stesso), il che impedisce che Apple dica al tuo dispositivo che il certificato è revocato (oltretutto blocca anche gli aggiornamenti OTA).
 
-Il profilo di configurazione madNS supporta le VPN, Feather e ChatGPT, inoltra blocca anche le pubblicità.
+I profili madNS e CFDNS supportano le VPN, Feather, e inoltre bloccano opzionalmente le pubblicità e gli aggiornamenti OTA.
+
+Puoi trovare le seguenti sigle nei profili:
+* UB: blocca gli OTA
+* AB: blocca le pubblicità
+* INSTALL ONLY: ti permette di installare le app
 
 Assicurati di non avere VPN attive durante l'installazione del profilo.
 
@@ -52,30 +57,46 @@ Assicurati di non avere VPN attive durante l'installazione del profilo.
 
 1. Vai sul sito di [WSF](https://wsfteam.xyz/#downloads) nella sezione _Configuration Profiles_
 2. Scegli il profilo che più ti si addice
-3. Vai in ```Impostazioni > Generali > VPN & Gestione Profili``` e clicca sul profilo appena scaricato
+3. Vai in `Impostazioni` > `Generali` > `VPN & Gestione Dispositivo` e clicca sul profilo appena scaricato
 4. Segui gli step per installarlo
-5. Attiva il DNS da ```Impostazioni > Generali > VPN & Gestione Profili > DNS``` 
-Puoi ora proseguire alla parte 2
+5. Attiva il DNS da ```Impostazioni > Generali > VPN & Gestione Profili > DNS```
 
-### Parte [2/2]: Installare l'app WSF Portal
+### Parte [2/2]: Installare l'app Portal
 
 1. Vai sul sito di [WSF](https://wsfteam.xyz/#downloads) nella sezione `Portal`
 2. Seleziona uno qualunque dei link, se nessuno funziona dovrai probabilmente seguire [questi step](#revocato)
-3. Vai in ```Impostazioni > Generali > VPN & Gestione Profili``` e autorizza l'app (potrebbe essere richiesto un riavvio)
+3. Vai in `Impostazioni` > `Generali` > `VPN & Gestione Dispositivo` e autorizza l'app (potrebbe essere richiesto un riavvio)
 4. WSF Portal dovrebbe essere ora nella schermata home
 5. Ora segui la guida nell'app per installare il sideloader che preferisci
 
 :::warning
-Visti i frequenti casi di revoke (soprattutto su iOS 18) è fortemente consigliato mettere SEMPRE in modalità aereo il dispositivo prima di riavviarlo o spegnerlo!
+È molto importante leggere le [Linee guida Post-Installazione](#linee-guida-post-installazione) qui sotto
 :::
 
 ---
+
+## Linee guida Post-Installazione
+
+Usa il profilo INSTALL ONLY DNS quando installi le app:
+
+Vai in `Impostazioni` > `Generali` > `VPN & Gestione Dispositivo` > `DNS` e scegli il Profilo INSTALL ONLY
+
+Dopo aver utilizzato la variante INSTALL ONLY, dovrai aprire l'app installata e poi tornare al tuo solito profilo quando hai finito.
+
+- Usa INSTALL ONLY DNS quando installi le app
+- Cambia l'INSTALL ONLY DNS quando hai finito di installare le app
+- Non devi mai disattivare il Config Profile!
+- Non attivare 2 Config Profiles contemporaneamente
+- Metti la Airplane Mode se stai cambiando Config Profile!
+- Disattiva WiFi e attiva Airplane Mode quando vuoi Spegnere, Riavviare o Aggiornare!
+- Non puoi usare una VPN a meno che tu abbia seguito la guida VPN Setup! 
+- Controlla Update, Annunci e Info dei Certificati su Portal regolarmente!
 
 ## Revocato
 
 Nel caso l'app crashi, non si installi proprio o è "Impossibile verificarne l'integrità", dovrai seguire uno di questi metodi.
 
-### Metodo 1
+#### Metodo 1
 
 1. Rimuovi tutti i profili e le app che hai installato 
 2. Fai un backup da iCloud
@@ -83,7 +104,7 @@ Nel caso l'app crashi, non si installi proprio o è "Impossibile verificarne l'i
 4. Ripristina il backup
 5. Ritorna al [Punto 1](#parte-12-installare-il-profilo) della guida
 
-### Metodo 2
+#### Metodo 2
 
 1. Rimuovi tutti i profili e le app che hai installato 
 2. Fai un backup da iTunes
@@ -91,13 +112,13 @@ Nel caso l'app crashi, non si installi proprio o è "Impossibile verificarne l'i
 4. Ripristina il backup
 5. Ritorna al [Punto 1](#parte-12-installare-il-profilo) della guida
 
-### Metodo 3
+#### Metodo 3
 
 1. Rimuovi tutti i profili e le app che hai installato
 2. Dopo aver fatto il backup, metti il dispositivo in Recovery e aggiorna da iTunes/Finder.
 3. Ritorna al [Punto 1](#parte-12-installare-il-profilo) della guida
 
-### Metodo 4
+#### Metodo 4
 
 :::danger
 PERDERAI TUTTI I TUOI DATI

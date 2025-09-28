@@ -7,31 +7,30 @@ description: Guida per l'installazione di TrollStore tramite TrollInstallerX
     <img src="https://raw.githubusercontent.com/alfiecg24/TrollInstallerX/main/Resources/Icon.png" width="125" height="125" />
 </div>
 
-## Cos'è?
-
-TrollInstallerX (TIX) è un installer universale di TrollStore. Nasce per essere estremamente affidabile e facile da utilizzare. È anche molto veloce, è infatti in grado di installare TrollStore e/o il suo persistence helper in qualche secondo.
-TrollInstallerX supporta tutti i device da iOS 14.0 a 16.6.1, sia arm64 che arm64e. Utilizza uno dei due metodi di installazione di TrollStore, a seconda del dispositivo utilizzato.
-
-I metodi sono:
-* Installazione diretta: utilizzando l'exploit kernel kfd e il dmaFail PPL bypass su dispositivi arm64e con iOS 15.2+, TIX installa sia TS che il persistence helper direttamente nel device senza bisogno di passaggi extra.
-    * Supporta iOS 14.0 - 16.6.1 (arm64) e iOS 14.0 - 16.5.1 (arm64e)
-        * Nota: i device con A15, A16 e M2 su iOS 16.5.1 non supportano questo metodo
-        * Nota: i device con A8 supportano questo metodo solo su iOS 14.0 - 15.1 per ora
-* Installazione indiretta: Utilizzando l'exploit kernel kdf, TIX rimpiazza un'applicazione di sistema a tua scelta con il persistence helper di TrollStore. Questo metodo esiste solo a causa della mancanza di un PPL bypass su dispositivi con iOS 16.6+, e anche perché il dmaFail non funziona su A15, A16 e M2 su iOS 16.5.1
-    * Supporta iOS 16.5.1 - 16.6.1 (arm64e)
-        * Nota: Questo metodo è l'unico che supporta A15, A16 e M2 su iOS 16.5.1
-
-Entrambi i metodi permettono di installare un persistence helper in un'app di sistema disinstallabile. Così è come funziona il CoreTrust bug - in alcune circostanze, TrollStore e altre app installate smetteranno di funzionare perché vengono resettate a User registration anziché System. Non potrai riaprire queste app finché non utilizzerai il persistence helper per resettarle a System registration.
-
-## Utilizzo
-
-TrollInstallerX è estremamente semplice da utilizzare. Per installarlo senza PC, vai su [jailbreaks.app](https://jailbreaks.app) (la firma potrebbe essere revocata).
-Altrimenti, scarica il ```.ipa``` dalle [Releases](https://github.com/alfiecg24/TrollInstallerX/releases) e installalo col metodo che preferisci (digita ```!altstore``` o ```!sideloadly``` sul [gruppo](https://t.me/JailbreakItalia)). Una volta installata, apri l'app e clicca il bottone ```Install```. Ora TrollStore e/o il persistence helper saranno installati sul dispositivo.
-TrollInstallerX sceglierà automaticamente l'exploit migliore per il tuo device. C'è però la possibilità che si sbagli e potrai quindi scegliere un exploit specifico. Per farlo, vai nelle impostazioni e scegli l'exploit adatto al tuo dispositivo.
-
-:::note
-iOS 16.2 - 16.6.1 e iOS 15.7.2 - 15.8.2 richiedono una connessione ad internet per scaricare dipendenze necessarie al corretto funzionamento.
+:::warning
+Gli iPad con A8(X) sono supportati solo da iPadOS 14.0 a 15.1
 :::
+
+## Requisiti
+
+* Un device compatibile (vedi la [tabella](/docs/trollstore.mdx) se non l'hai già fatto)
+* L'app [Suggerimenti](https://apps.apple.com/it/app/suggerimenti/id1069509450) installata sul tuo dispositivo
+* L'ultima versione di [TrollInstallerX.ipa](https://github.com/alfiecg24/TrollInstallerX/releases/latest/download/TrollInstallerX.ipa)
+    * Se (e solo se) hai un iPhone 14 (o 14 Plus) GIALLO su iOS 16.3 dovrai usare la [versione apposita](https://github.com/alfiecg24/TrollInstallerX/releases/latest/download/TrollInstallerX-20D50.ipa)
+
+## Installare TrollInstallerX
+
+Scarica il file `.ipa` di TrollInstallerX e installalo col metodo che preferisci, se non sai come fare, segui la guida per [SideStore](/docs/guide-non-jb/sidestore.mdx) o [AltServer](/docs/guide-non-jb/altstore-altserver.mdx).
+
+## Eseguire TrollInstallerX
+
+1. Apri TrollInstallerX
+2. Tocca `Install TrollStore`
+    * Se si blocca a "Exploiting Kernel" riavvia il dispositivo
+3. Ti verra chiesto in che app installare il Persistence Helper, scegli "Suggerimenti" (o "Tips")
+    * Se il tuo device si riavvia prima di arrivare a questo step, riprova
+4. Apri l'app "Suggerimenti"
+5. Clicca `Install TrollStore`
 
 ## FAQ
 
