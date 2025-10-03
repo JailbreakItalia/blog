@@ -1,0 +1,169 @@
+---
+title: Turdus Merula
+description: Guida per l'utilizzo di Turdus Merula
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Turdus Merula è un tool che utilizza un exploit bootrom e SEP per poter ai dispositivi con A9(X) e A10(X) di effettuare il downgrade a versioni non firmate di iOS/iPadOS.
+
+## Dispositivi Supportati
+
+Questo è l'elenco dei dispositivi supportati, in futuro potrebbero essere aggiunti dispositivi più vecchi. Dispositivi più recenti non sono e non saranno mai compatibili con quest exploit.
+
+* A9(X):
+    * iPhone 6s & 6s Plus
+    * iPhone SE (1a gen)
+    * iPad 5a gen
+    * iPad Pro 9.7" (2016)
+    * iPad Pro 12.9" (2015)
+
+* A10(X):
+    * iPhone 7 & 7 Plus
+    * iPad 6a gen
+    * iPad 7a gen
+    * iPod Touch 7a gen
+    * iPad Pro 10.5" (2017)
+    * iPad Pro 12.9" (2a gen, 2017)
+
+## Requisiti
+
+* Un dispositivo A9(X) o A10(X)
+* I blob shsh2 della versione a cui vuoi eseguire il downgrade
+    * Queste blob sono **uniche** per il tuo dispositivo, non puoi usare i blob di un'altra persona
+* Un PC con Linux o macOS
+    * Non utilizzare WSL o Macchine Virtuali, non funzioneranno
+
+:::danger
+Gli iPad Pro <u>Cellular</u> con A10X e alcuni iPhone 7 hanno problemi nell'attivarsi dopo il restore ad iOS 10.
+
+Se hai uno di questi dispositivi è **fortemente** consigliato ripristinare ad iOS 11 o successivi.
+:::
+
+:::warning
+In alcuni casi dovrai prima eseguire un downgrade tethered ([guida Linux](https://ios.cfw.guide/turdusmerula-tethered-linux/)/[guida macOS](https://ios.cfw.guide/turdusmerula-tethered-macos/))ad una versione intermedia prima di ripristinare alla versione di destinazione:
+* Se vuoi ripristinare ad una versione iOS da 10.0 a 10.3.2 dovrai prima eseguire il downgrade ad iOS 10.3.3
+* Se vuoi ripristinare ad una versione iOS da 9.0 a 9.3.5 dovrai prima eseguire il downgrade ad iOS 10.2.1
+:::
+
+## Download
+* L'ultima versione di [turdus merula](https://sep.lol/)
+* Il file `.ipsw` per il tuo device da [ipsw.me](https://ipsw.me)
+    * Scarica quello corrispondente alla versione dei blob che possiedi
+
+## Trovare il generator
+
+:::danger
+Non modificare il file `.shsh`!
+:::
+
+1. Apri il terminale e naviga alla cartella in cui hai salvato i blob
+    * Tipicamente è in `~/Downloads`
+2. Esegui `cat *.shsh2 | grep -A 1 "generator"
+    * L'output somiglierà a questo:
+    ```xml
+	<key>generator</key>
+	<string>0xdaa586113bbecff6</string> // <- salva questa stringa
+    ```
+    
+
+## Usare turdus merula
+
+<Tabs>
+  <TabItem value="macOS" label="macOS" default>
+  <Tabs>
+    <TabItem value="A9(X)" label="SoC A9(X)" default>
+      :::warning
+      I dispositivi con A9(X) hanno una percentuale di fallimento. Se qualcosa va storto ricomincia da qui
+      :::
+    
+      ### Ottenere shcblock
+    
+      1. Connetti il device al Mac
+      2. Assicurati che sia autorizzato
+      3. Entra in [Recovery mode](https://support.apple.com/118106)
+      4. Apri una nuova finestra del terminale e naviga fino a dove hai estratto la cartella di turdus merula (tipicamente in ~/Downloads)
+        * Es: `cd ~/Downloads/turdus_*`
+      5. Esegui `/usr/bin/xattr -cr ./bin`
+      5. Esegui `./bin/turdusra1n -D`
+          * Segui le istruzioni a schermo per entrare in DFU
+      6. Esegui `./bin/turdus_merula --get-shcblock [percorso-del-file.ipsw]`
+  
+      L'shcblock verrà salvato nella cartella "block" nella cartella turdus_m3rula e il tuo device si riavvierà.
+
+      ### Ripristinare il dispositivo
+  
+      1. Entra in [Recovery mode](https://support.apple.com/118106)
+      2. Esegui `./bin/turdusra1n -Db [generator]`
+          * Al posto di [generator] dovrai mettere la stringa ottenuta nel passaggio precedente (0xblablabla)
+          * Segui le istruzioni a schermo per entrare in DFU
+      3. Esegui `./bin/turdus_merula -w --load-shsh [shsh blob] --load-shcblock [shcblock] [ipsw file]`
+      4. Segui eventuali passaggi successivi a schermo
+    </TabItem>
+    <TabItem value="A10(X)" label="SoC A10(X)">
+      1. Connetti il device al Mac
+      2. Assicurati che sia autorizzato
+      3. Entra in [Recovery mode](https://support.apple.com/118106)
+      4. Apri una nuova finestra del terminale e naviga fino a dove hai estratto la cartella di turdus merula (tipicamente in ~/Downloads)
+            * Es: `cd ~/Downloads/turdus_*`
+      5. Esegui `/usr/bin/xattr -cr ./bin`
+      5. Esegui `./bin/turdusra1n -Db [generator]`
+          * Al posto di [generator] dovrai mettere la stringa ottenuta nel passaggio precedente (0xblablabla)
+          * Segui le istruzioni a schermo per entrare in DFU
+      6. Esegui `./bin/turdus_merula -w --load-shsh [shsh blob] [ipsw file]`
+      7. Segui eventuali passaggi successivi a schermo
+    </TabItem>
+  </Tabs>
+  </TabItem>
+  <TabItem value="linux" label="Linux" default>
+  Vai sul terminale ed esegui questi comandi:
+  * `sudo systemctl stop usbmuxd`
+  * `sudo usbmuxd -f -p`
+  
+  <Tabs>
+    <TabItem value="A9(X)" label="SoC A9(X)" default>
+      :::warning
+      I dispositivi con A9(X) hanno una percentuale di fallimento. Se qualcosa va storto ricomincia da qui
+      :::
+    
+      ### Ottenere shcblock
+    
+      1. Connetti il device al computer
+      2. Assicurati che sia autorizzato
+      3. Entra in [Recovery mode](https://support.apple.com/118106)
+      4. Apri una nuova finestra del terminale e naviga fino a dove hai estratto la cartella di turdus merula (tipicamente in ~/Downloads)
+        * Es: `cd ~/Downloads/turdus_*`
+      5. Esegui `sudo ./bin/turdusra1n -D`
+          * Segui le istruzioni a schermo per entrare in DFU
+      6. Esegui `sudo ./bin/turdus_merula --get-shcblock [percorso-del-file.ipsw]`
+  
+      L'shcblock verrà salvato nella cartella "block" nella cartella turdus_m3rula e il tuo device si riavvierà.
+    
+      ### Ripristinare il dispositivo
+  
+      1. Entra in [Recovery mode](https://support.apple.com/118106)
+      2. Esegui `sudo ./bin/turdusra1n -Db [generator]`
+          * Al posto di [generator] dovrai mettere la stringa ottenuta nel passaggio precedente (0xblablabla)
+          * Segui le istruzioni a schermo per entrare in DFU
+      3. Esegui `sudo ./bin/turdus_merula -w --load-shsh [shsh blob] --load-shcblock [shcblock] [ipsw file]`
+      4. Segui eventuali passaggi successivi a schermo
+    </TabItem>
+    <TabItem value="A10(X)" label="SoC A10(X)">
+      1. Connetti il device al computer
+      2. Assicurati che sia autorizzato
+      3. Entra in [Recovery mode](https://support.apple.com/118106)
+      4. Apri una nuova finestra del terminale e naviga fino a dove hai estratto la cartella di turdus merula (tipicamente in ~/Downloads)
+            * Es: `cd ~/Downloads/turdus_*`
+      5. Esegui `sudo ./bin/turdusra1n -Db [generator]`
+          * Al posto di [generator] dovrai mettere la stringa ottenuta nel passaggio precedente (0xblablabla)
+          * Segui le istruzioni a schermo per entrare in DFU
+      6. Esegui `sudo ./bin/turdus_merula -w --load-shsh [shsh blob] [ipsw file]`
+      7. Segui eventuali passaggi successivi a schermo
+    </TabItem>
+  </Tabs>
+  </TabItem>
+</Tabs>
+---
+
+Ora il tuo dispositivo dovrebbe ripristinarsi alla versione desiderata.
