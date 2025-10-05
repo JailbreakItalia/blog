@@ -13,7 +13,7 @@ const config = {
   title: 'Jailbreak Italia',
   tagline: 'Il sito ufficiale di Jailbreak Italia',
   favicon: 'img/favicon.ico',
-
+  
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
@@ -93,17 +93,17 @@ const config = {
           },
           {
             href: 'https://github.com/JailbreakItalia/blog',
-            label: 'GitHub',
+            className: 'header-github-link',
             position: 'right',
           },
           {
             href: 'https://t.me/jailbreakitalia',
-            label: 'Gruppo Telegram',
+            className: 'header-telegram-link',
             position: 'right',
           },
           {
             href: 'https://t.me/jailbreakitalianews',
-            label: 'Canale News',
+            className: 'header-news-link',
             position: 'right',
           },
         ],
