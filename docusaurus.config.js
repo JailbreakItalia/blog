@@ -61,19 +61,7 @@ const config = {
   ],
 
   plugins: [
-    [
-      'docusaurus-lunr-search', 
-      {
-        languages: ['it'],
-        // Keep max results to 10
-        maxHits: 10,
-        indexBatchSize: 100,
-        excludeRoutes: [
-          'docs/tags/**',
-          '404'
-        ]
-      }
-    ]
+
   ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
