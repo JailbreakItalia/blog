@@ -1,0 +1,25 @@
+---
+title: Rimuovere palera1n (Legacy)
+description: Guida per la rimozione di palera1n
+pagination_next: null
+pagination_prev: null
+sidebar_class_name: hidden
+---
+
+Se vuoi rimuovere palera1n dovrai eseguire i seguenti comandi sul PC/Mac mentre il tuo iDevice è connesso in DFU. Per rimuovere il jailbreak non sei obbligato a ripristinare.
+
+:::warning
+Se sei su Linux, apri un terminale ed esegui questi comandi:
+`sudo systemctl stop usbmuxd`
+`sudo usbmuxd -f -p`
+
+Poi apri un altro terminale e segui gli step seguenti.
+:::
+
+1. Clona la repo con `git clone -b legacy --recursive --depth=1 --shallow-submodules https://github.com/palera1n/palera1n && cd palera1n`
+2. Esegui `./palera1n.sh --restorerootfs <La tua attuale versione iOS> --tweaks`
+    * Se sei su Linux aggiungi `sudo` davanti al comando
+    * Se sei su palera1n semi-tethered, aggiungi il flag `--semi-tethered` alla fine del comando
+    * Se hai problemi, aggiungi `--debug` alla fine del comando per avere più info
+
+A questo punto il dispositivo dovrebbe avviarsi e funzionare normalmente.
