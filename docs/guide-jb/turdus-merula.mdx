@@ -60,12 +60,14 @@ Non modificare il file `.shsh`!
 
 1. Apri il terminale e naviga alla cartella in cui hai salvato i blob
     * Tipicamente è in `~/Downloads`
-2. Esegui `cat *.shsh2 | grep -A 1 "generator"
+2. Esegui `cat *.shsh2 | grep -A 1 "generator"`
     * L'output somiglierà a questo:
     ```xml
 	<key>generator</key>
-	<string>0xdaa586113bbecff6</string> // <- salva questa stringa
+	<string>0x1111111111111111</string>
     ```
+    
+    Salva l'output contenuto nel campo `<string>`, servirà più tardi. 
     
 
 ## Usare turdus merula
@@ -116,6 +118,11 @@ Non modificare il file `.shsh`!
   </Tabs>
   </TabItem>
   <TabItem value="linux" label="Linux" default>
+
+  :::warning
+  La versione Linux di turdus merula è ancora in beta. Dovrebbe funzionare senza problemi, ma è meno testata rispetto alla versione per macOS. Se riesci, recupera un Mac e usa la versione per macOS.
+  :::
+
   Vai sul terminale ed esegui questi comandi:
   * `sudo systemctl stop usbmuxd`
   * `sudo usbmuxd -f -p`
