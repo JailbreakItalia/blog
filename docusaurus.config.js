@@ -70,9 +70,9 @@ const config = {
       colorMode: {
         respectPrefersColorScheme: true,
       },
-      metadata:[
+      metadata: {
         {name: 'keywords', content: 'jailbreak, Italia, iPhone, mod, modding, iPad, iOS, iPadOS, telegram'}
-      ],
+      },
       navbar: {
         title: ' Italia',
         logo: {
