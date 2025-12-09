@@ -17,32 +17,13 @@ SideStore è un'app per iOS/iPadOS che permette di eseguire il sideload e il ref
 2. Un PC/Mac
 3. Un Apple ID
 4. Una connessione Wi-Fi o Hotspot (no dati cellulare)
-5. L'app StikDebug
-
-## Installare StikDebug
-
-:::note
-Per i residenti in UE, è necessario installare StikDebug da AltStore PAL (da non confondere con AltStore Classic), che è compatibile solo con iOS 18.0+
-
-Se sei in una versione inferiore, purtroppo non ci sono ancora soluzioni, se non quella di creare un Apple ID fuori dall'UE e installare [StosVPN](https://apps.apple.com/us/app/stosvpn/id6744003051).
-
-> [Alcuni utenti](https://github.com/SideStore/StosVPN/issues/40#issuecomment-3532291959) segnalano la possibilità di aggiungere un indirizzo Statunitense al proprio account UE per poter installare StosVPN. 
-:::
-
-1. **Direttamente dall'iPhone/iPad**, vai su [altstore.io/download](https://altstore.io/download)
-2. Clicca su Download e segui gli step
-    * Potresti dover abilitare la Modalità Sviluppo, per farlo vai in `Impostazioni` > `Privacy e Sicurezza` e in fondo abilita la Modalità Sviluppo
-3. Apri AltStore PAL e vai in Sources
-4. Clicca sul `+` in alto a sinistra e aggiungi "Stephen's Apps" (o aggiungi manualmente `https://stikdebug.xyz/apps.json`)
-5. Clicca sulla repo appena aggiunta e installa StikDebug
-6. Apri StikDebug e segui gli step per configurare la VPN
+5. L'app [StikDebug](https://apps.apple.com/us/app/stikdebug/id6744045754) (o [LocalDevVPN](https://apps.apple.com/app/localdevvpn/id6755608044) se sei su iOS 17.3.1 o inferiori)
 
 ## Installare iloader
 
 <Tabs>
   <TabItem value="macOS" label="macOS" default>
   1. Scarica e installa iloader per [Mac](https://github.com/nab138/iloader/releases/latest/download/iloader-darwin-universal.dmg)
-  2. Apri il Terminale, esegui `sudo xattr -c ./Applications/iloader.app` e inserisci la password se richiesta
   </TabItem>
   <TabItem value="windows" label="Windows" default>
   1. Scarica e installa [iTunes](https://apple.com/itunes)
@@ -51,7 +32,7 @@ Se sei in una versione inferiore, purtroppo non ci sono ancora soluzioni, se non
   </TabItem>
   <TabItem value="linux" label="Linux" default>
   1. Scarica e installa `usbmuxd` (su alcune distro è preinstallato)
-  2. Scarica e installa iloader per la tua distro ([Debian/Ubuntu](https://github.com/nab138/iloader/releases/latest/download/iloader-linux-amd64.deb), [Fedora/openSUSE](https://github.com/nab138/iloader/releases/download/v0.1.3/iloader-linux-x86_64.rpm) o la [AppImage](https://github.com/nab138/iloader/releases/latest/download/iloader-linux-amd64.AppImage))
+  2. Scarica e installa iloader per la tua distro ([Debian/Ubuntu](https://github.com/nab138/iloader/releases/latest/download/iloader-linux-amd64.deb), [Fedora/openSUSE](https://github.com/nab138/iloader/releases/latest/download/iloader-linux-x86_64.rpm) o la [AppImage](https://github.com/nab138/iloader/releases/latest/download/iloader-linux-amd64.AppImage))
   </TabItem>
 </Tabs>
 
@@ -60,11 +41,11 @@ Se sei in una versione inferiore, purtroppo non ci sono ancora soluzioni, se non
 1. Collega il tuo iPhone/iPad al computer via cavo. Se te lo chiede, autorizza il PC e inserisci il codice
 2. Apri iloader e accedi col tuo Apple ID
 3. Seleziona il tuo dispositivo
-4. Clicca "Install SideStore (Stable)" (se vuoi anche [LiveContainer](livecontainer), scegli "Install LiveContainer+SideStore")
+4. Clicca "Install SideStore (Stable)"
 5. Sull'iPhone/iPad:
     * Vai in `Impostazioni` > `Generali` > `VPN e Gestione Dispositivo` e Autorizza la tua mail
     * Vai in `Impostazioni` > `Privacy e Sicurezza` e in fondo abilita la Modalità Sviluppo
-6. Su iloader, clicca su "Manage Pairing File" e clicca su "Place Pairing File" a fianco di "SideStore" e "StikDebug" (ed eventualmente di "LiveContainer").
+6. Su iloader, clicca su "Manage Pairing File" e clicca su "Place Pairing File" a fianco di "SideStore" (e "StikDebug" se disponibile)
 7. Con la VPN attiva, apri SideStore e accedi al tuo Apple ID
 8. Vai in "My Apps" e clicca su "x Days" di fianco a SideStore per evitare bug
 
