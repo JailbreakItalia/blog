@@ -71,7 +71,7 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: ' Italia',
+        title: 'Jailbreak Italia',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
