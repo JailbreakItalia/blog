@@ -62,7 +62,12 @@ const config = {
   ],
 
   plugins: [
-
+    [
+      require.resolve('docusaurus-lunr-search'),
+      {
+        languages: ['it']
+      }
+    ]
   ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
