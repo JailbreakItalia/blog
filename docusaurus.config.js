@@ -63,10 +63,17 @@ const config = {
 
   plugins: [
     [
-      require.resolve('docusaurus-lunr-search'),
+      'docusaurus-lunr-search', 
       {
-        languages: ['it']
+        languages: ['it'],
+        maxHits: 10,
+        indexBatchSize: 100,
+        excludeRoutes: [
+          'docs/tags/**',
+          '404'
+        ]
       }
+    
     ]
   ],
   themeConfig:
