@@ -61,19 +61,16 @@ const config = {
     ],
   ],
 
-  plugins: [
+  themes: [
     [
-      'docusaurus-lunr-search', 
+      require.resolve('@easyops-cn/docusaurus-search-local'),
       {
-        languages: ['it'],
-        maxHits: 10,
-        indexBatchSize: 100,
-        excludeRoutes: [
-          'docs/tags/**',
-          '404'
-        ]
-      }
-    
+        language: ['it'],
+        indexPages: true,
+        highlightSearchTermsOnTargetPage: true,
+        searchResultLimits: 8,
+        docsRouteBasePath: '/docs',
+      },
     ]
   ],
   themeConfig:
