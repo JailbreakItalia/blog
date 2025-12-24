@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
+import Link from '@docusaurus/Link';
 
 const FeatureList = [
   {
@@ -28,7 +29,7 @@ const FeatureList = [
     description: (
       <>
         Rimani aggiornato sulle ultime novità sul mondo Apple e Jailbreak, iscriviti
-        al nostro <a href="https://t.me/JailbreakItaliaNews">Canale News</a>.
+        al nostro <Link to="https://t.me/JailbreakItaliaNews">Canale News</Link>.
       </>
     ),
   },
