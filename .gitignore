@@ -21,3 +21,11 @@ yarn-error.log*
 
 .vscode
 ignore-*
+
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
