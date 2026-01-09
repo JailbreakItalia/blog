@@ -4619,7 +4619,6 @@ __metadata:
     "@mdx-js/react": "npm:^3.0.0"
     "@types/react": "npm:^19.2.7"
     clsx: "npm:^2.0.0"
-    corepack: "npm:^0.34.5"
     prism-react-renderer: "npm:^2.3.0"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
@@ -5340,19 +5339,6 @@ __metadata:
   version: 1.0.3
   resolution: "core-util-is@npm:1.0.3"
   checksum: 10c0/90a0e40abbddfd7618f8ccd63a74d88deea94e77d0e8dbbea059fa7ebebb8fbb4e2909667fe26f3a467073de1a542ebe6ae4c73a73745ac5833786759cd906c9
-  languageName: node
-  linkType: hard
-
-"corepack@npm:^0.34.5":
-  version: 0.34.5
-  resolution: "corepack@npm:0.34.5"
-  bin:
-    corepack: ./dist/corepack.js
-    pnpm: ./dist/pnpm.js
-    pnpx: ./dist/pnpx.js
-    yarn: ./dist/yarn.js
-    yarnpkg: ./dist/yarnpkg.js
-  checksum: 10c0/7dfabc548a994910496da700a9c6e92cd99a7b7631fa02b98df2ee4415fb45ba88594e8053ca2b68dedbd558759287e6488294e495be83db01f6e5a4f4360239
   languageName: node
   linkType: hard
 
